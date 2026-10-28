@@ -1,0 +1,30 @@
+name: Bug report
+description: Report a reproducible problem
+title: "[Bug]: "
+body:
+  - type: markdown
+    attributes:
+      value: "Use synthetic data. Do not post credentials or private task content. Security reports: see SECURITY.md."
+  - type: input
+    id: version
+    attributes:
+      label: Version and environment
+      placeholder: Commit/tag, OS, runtime versions
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to reproduce
+    validations:
+      required: true
+  - type: textarea
+    id: result
+    attributes:
+      label: Expected and actual behavior
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Redacted logs or screenshots

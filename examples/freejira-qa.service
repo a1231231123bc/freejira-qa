@@ -1,0 +1,19 @@
+[Unit]
+Description=Freejira QA worker
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+ExecStart=/absolute/path/to/freejira-qa/.venv/bin/python -u -m service --config /absolute/path/to/config.json
+Environment=PATH=/usr/local/bin:/usr/bin:/bin
+Environment=GIT_TERMINAL_PROMPT=0
+Restart=on-failure
+RestartSec=30
+UMask=0077
+TimeoutStopSec=30
+KillMode=control-group
+NoNewPrivileges=true
+
+[Install]
+WantedBy=default.target

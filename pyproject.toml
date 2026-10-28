@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "freejira-qa"
+version = "0.1.0"
+description = "Review Freejira tasks with GitHub evidence, configured checks and Ollama"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{name = "Freejira contributors"}]
+dependencies = []
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Programming Language :: Python :: 3",
+  "Operating System :: POSIX",
+  "Topic :: Software Development :: Quality Assurance",
+]
+
+[project.urls]
+Repository = "https://github.com/a1231231123bc/freejira-qa"
+Issues = "https://github.com/a1231231123bc/freejira-qa/issues"
+
+[project.scripts]
+freejira-qa = "qa_agent:main"
+freejira-qa-service = "service:main"
+
+[tool.setuptools]
+py-modules = ["qa_agent", "qa_config", "service"]

@@ -1,0 +1,51 @@
+{
+  "data_dir": "~/.local/state/freejira-qa",
+  "work_dir": "~/.cache/freejira-qa/worktrees",
+  "mcp": {
+    "command": [
+      "node",
+      "/absolute/path/to/freejira-qa/mcp/connector.mjs",
+      "stdio"
+    ]
+  },
+  "ollama_url": "http://127.0.0.1:11434",
+  "model": "qwen3.6:27b",
+  "num_ctx": 32768,
+  "max_diff_chars": 40000,
+  "poll_seconds": 30,
+  "retry_seconds": 120,
+  "keep_worktree": false,
+  "columns": {
+    "pass": null,
+    "fail": null,
+    "unsure": null
+  },
+  "projects": {
+    "DEMO": {
+      "name": "Example application",
+      "freejira_project_id": "00000000-0000-4000-8000-000000000001",
+      "repo_path": "~/repositories/example-app",
+      "github_repo": "example/example-app",
+      "about": "Replace with the application's purpose and acceptance conventions.",
+      "trusted": false,
+      "allow_forks": false,
+      "steps": [
+        {
+          "name": "Install locked dependencies",
+          "run": "npm ci",
+          "timeout": 600,
+          "stop_on_fail": true
+        },
+        {
+          "name": "Tests",
+          "run": "npm test",
+          "timeout": 600
+        }
+      ],
+      "not_checked": [
+        "Manual browser behavior",
+        "Production data and deployment"
+      ]
+    }
+  }
+}
