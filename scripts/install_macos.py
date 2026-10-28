@@ -28,7 +28,8 @@ def main():
         "ProgramArguments": ["/usr/bin/caffeinate", "-i", sys.executable, "-u", "-m", "service", "--config", str(config_path)],
         "WorkingDirectory": str(data), "RunAtLoad": True, "KeepAlive": True,
         "ThrottleInterval": 30, "ProcessType": "Background",
-        "EnvironmentVariables": {"PATH": os.environ["PATH"], "PYTHONUNBUFFERED": "1", "GIT_TERMINAL_PROMPT": "0"},
+        "EnvironmentVariables": {"PATH": os.environ["PATH"], "PYTHONUNBUFFERED": "1", "GIT_TERMINAL_PROMPT": "0",
+                                 **{k: os.environ[k] for k in ("GH_CONFIG_DIR", "COREPACK_HOME", "PNPM_HOME") if k in os.environ}},
         "StandardOutPath": str(data / "launchd.log"), "StandardErrorPath": str(data / "launchd.log"),
     }
     plist.parent.mkdir(parents=True, exist_ok=True)

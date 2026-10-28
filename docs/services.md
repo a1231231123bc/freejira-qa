@@ -8,7 +8,7 @@ First complete pairing, configure repository clones and run `freejira-qa-service
 .venv/bin/python scripts/install_macos.py --config ~/.config/freejira-qa/config.json
 ```
 
-The installer uses the selected Python interpreter, captures PATH, writes a user LaunchAgent and starts it. It refuses to overwrite an existing service. Logs and status are in the configured data directory. It uses `caffeinate -i` while running; manual sleep, lid close and power loss can still stop it. A LaunchAgent starts after its user logs in, not at the FileVault pre-login screen.
+The installer uses the selected Python interpreter, captures PATH and optional GH_CONFIG_DIR/COREPACK_HOME/PNPM_HOME, writes a user LaunchAgent and starts it. It refuses to overwrite an existing service. Logs and status are in the configured data directory. It uses `caffeinate -i` while running; manual sleep, lid close and power loss can still stop it. A LaunchAgent starts after its user logs in, not at the FileVault pre-login screen.
 
 ```sh
 launchctl print gui/$(id -u)/com.freejira.qa-agent
